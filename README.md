@@ -29,7 +29,7 @@ CatSchema.list(name: "tom")
 CatSchema.delete(cat)
 ```
 
-## Installation
+## Setup
 
 Add to your `mix.exs` file:
 
@@ -45,4 +45,55 @@ Then run:
 
 ```zsh
 mix deps.get
+```
+
+And finally add the following to your schemas:
+
+```elixir
+use EctoQuerify,
+  schema: __MODULE__,
+  repo: YourRepo
+```
+
+## Usage
+
+After you have added EctoQuerify to your schema, you can use the the following functions:
+
+- get
+- get_by
+- list
+- create
+- update
+- delete
+
+# get
+
+Get single record by ID.
+
+Basic example:
+
+```elixir
+Person.get(id)
+```
+
+Preload associations:
+
+```elixir
+Person.get(id, [:parent, :kids])
+```
+
+# get_by
+
+Get single record by field values.
+
+Basic example:
+
+```elixir
+Person.get_by(name: "Tom", surname: "Wiggins")
+```
+
+Preload associations:
+
+```elixir
+Person.get_by([name: "Tom", surname: "Wiggins"], [:parent, :kids])
 ```
