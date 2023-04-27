@@ -73,13 +73,13 @@ Get single record by ID.
 Basic example:
 
 ```elixir
-Person.get(id)
+{:ok, person} = Person.get(id)
 ```
 
 Preload associations:
 
 ```elixir
-Person.get(id, [:parent, :kids])
+{:ok, %{parent: parent, kids: kids} = person} = Person.get(id, [:parent, :kids])
 ```
 
 # get_by
@@ -89,11 +89,27 @@ Get single record by multiple field values.
 Basic example:
 
 ```elixir
-Person.get_by(name: "Tom", surname: "Wiggins")
+{:ok, person} = Person.get_by(name: "Tom", surname: "Wiggins")
 ```
 
 Preload associations:
 
 ```elixir
-Person.get_by([name: "Tom", surname: "Wiggins"], [:parent, :kids])
+{:ok, %{parent: parent, kids: kids} = person} = Person.get_by([name: "Tom", surname: "Wiggins"], [:parent, :kids])
+```
+
+# list
+
+List records by their fields and associations.
+
+Basic example:
+
+```elixir
+{:ok, people} = Person.list(name: "Tom", age: 2)
+```
+
+List by association fields:
+
+```elixir
+{:ok, people} = Person.list(name: "Tom", parent__name: "Bradley")
 ```
