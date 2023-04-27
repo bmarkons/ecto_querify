@@ -23,7 +23,7 @@ defmodule CatSchema do
 end
 ```
 
-Now you can use the following functions:
+After adding EctoQuerify functions to your schema, you can use the following functions:
 
 ```elixir
 CatSchema.get(id)
