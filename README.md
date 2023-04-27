@@ -13,12 +13,7 @@ defmodule CatSchema do
       schema: __MODULE__,
       repo: YourRepo
 
-    @primary_key {:id, Ecto.UUID, autogenerate: true}
-    schema "cats" do
-      belongs_to(:owner, Owner, type: Ecto.UUID)
-      field(:name, :string)
-      field(:breed, :string)
-    end
+    ...
   end
 end
 ```
