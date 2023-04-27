@@ -8,7 +8,7 @@ For example, let's say you have CatSchema in your app:
 defmodule CatSchema do
     use Ecto.Schema
     
-    # Add the most common query functions to CatSchema
+    # Use query functions from EctoQuerify
     use EctoQuerify,
       schema: __MODULE__,
       repo: YourRepo
