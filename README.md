@@ -84,7 +84,7 @@ Person.get(id, [:parent, :kids])
 
 # get_by
 
-Get single record by field values.
+Get single record by multiple field values.
 
 Basic example:
 
